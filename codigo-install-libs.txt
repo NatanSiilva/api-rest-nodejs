@@ -8,3 +8,6 @@
 
 * CORS 
   -> yarn add cors
+  
+* NODEMON
+  -> yarn add -D nodemon  
