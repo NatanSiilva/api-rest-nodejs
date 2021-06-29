@@ -1,0 +1,10 @@
+
+
+* NODEJS
+  -> npm init -y
+
+* EXPRESS
+  -> yarn add express 
+
+* CORS 
+  -> yarn add cors
