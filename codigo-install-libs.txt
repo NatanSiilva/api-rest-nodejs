@@ -11,3 +11,15 @@
   
 * NODEMON
   -> yarn add -D nodemon  
+
+* MONGOOSE
+  -> yarn add mongoose 
+
+* MORGAN
+  -> yarn add morgan
+
+* BCRYPTJS 
+  -> yarn add bcryptjs
+
+* YUP
+  -> yarn add yup
