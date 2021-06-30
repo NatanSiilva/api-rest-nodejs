@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 const yup = require("yup");
 
@@ -52,6 +52,33 @@ class UserController {
         },
       });
     });
+  }
+
+  async showAllUsers(req, res) {
+    const allUsers = await User.find({});
+
+    if (!allUsers)
+      return res.status(400).json({
+        success: false,
+        message: "Não existe usuários",
+      });
+
+    const users = allUsers.map((user) => {
+      return {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+      };
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "Lista de todos os usuários",
+      data: {
+        users,
+      },
+    });
+
   }
 }
 

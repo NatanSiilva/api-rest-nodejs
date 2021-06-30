@@ -23,3 +23,12 @@
 
 * YUP
   -> yarn add yup
+
+* JSON WEB TOKEN
+  -> yarn add jsonwebtoken 
+
+* AXIOS
+  -> yarn add axios
+
+* GERAR HASH DA SECRET 
+  -> https://emn178.github.io/online-tools/sha256.html
