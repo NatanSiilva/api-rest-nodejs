@@ -32,3 +32,13 @@
 
 * GERAR HASH DA SECRET 
   -> https://emn178.github.io/online-tools/sha256.html
+
+* DONTENV
+  -> yarn add dotenv
+
+* mongoose-paginate-v2
+  -> yarn add mongoose-paginate-v2
+
+* LINK DA DOCUMENTAÇÃO HUBSPORT
+  -> https://legacydocs.hubspot.com/docs/methods/contacts/create_or_update
+  -> https://app.hubspot.com/property-settings/20330500/properties?action=edit&property=mobilephone&search=celular&type=0-1

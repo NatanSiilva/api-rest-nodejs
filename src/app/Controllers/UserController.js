@@ -1,12 +1,14 @@
 const User = require("../Models/User");
 const bcrypt = require("bcryptjs");
 const yup = require("yup");
+const Hubspot = require("../../clients/hubspot");
 
 class UserController {
   async store(req, res) {
     let schema = yup.object().shape({
       name: yup.string().required(),
       email: yup.string().email().required(),
+      phone: yup.string().required(),
       password: yup.string().required(),
     });
 
@@ -25,15 +27,19 @@ class UserController {
       });
     }
 
-    const { name, email, password } = req.body;
+    const { name, email, password, phone } = req.body;
 
     const data = {
       name,
       email,
+      phone,
       password,
     };
 
+    Hubspot.connect(data);
+
     data.password = await bcrypt.hash(data.password, 8);
+    
 
     await User.create(data, (err) => {
       if (err)
@@ -48,6 +54,7 @@ class UserController {
         data: {
           name: data.name,
           email: data.email,
+          phone: data.phone,
           created_at: new Date(),
         },
       });
@@ -68,6 +75,7 @@ class UserController {
         id: user._id,
         name: user.name,
         email: user.email,
+        phone: user.phone
       };
     });
 
@@ -78,7 +86,6 @@ class UserController {
         users,
       },
     });
-
   }
 }
 

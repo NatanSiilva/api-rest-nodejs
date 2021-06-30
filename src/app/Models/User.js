@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
+const mongoosePaginate = require("mongoose-paginate-v2");
 
-const User = mongoose.Schema(
+const Contact = mongoose.Schema(
   {
     name: { type: "string", required: true },
     email: { type: "string", required: true },
+    phone: { type: "string", required: true },
     password: { type: "string", required: true },
   },
   {
@@ -11,4 +13,6 @@ const User = mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model("user", User);
+Contact.plugin(mongoosePaginate);
+
+module.exports = mongoose.model("Contact", Contact);
